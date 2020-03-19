@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "richardpoulson.github.io",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Professional site for Richard Poulson",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Richard Poulson <contact@richardpoulson.com>",
   "dependencies": {
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
@@ -23,9 +23,9 @@
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby", "react"
   ],
-  "license": "MIT",
+  "license": "agpl-3.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -38,9 +38,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/RichardPoulson/RichardPoulson.github.io"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/RichardPoulson/RichardPoulson.github.io/issues"
   }
 }
