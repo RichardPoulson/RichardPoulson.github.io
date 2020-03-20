@@ -5,6 +5,8 @@
   Utilizes  <a href="https://www.gatsbyjs.org/" title="''Fast in every way that matters: Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps''">Gatsby</a>, a free and open source framework based on React.
 </h4>
 
+<hr>
+
 ## Project contents (top-level files/directories):
 
     .
@@ -46,9 +48,7 @@
 
 1. **`yarn.lock`**: ([documentation](https://classic.yarnpkg.com/en/docs/yarn-lock/)) Automatically generated file, based on "package.json" file, can ignore in most cases.
 
-<br>
-
-## :electric_plug: Gatsby Plugins:
+## 🔌 Gatsby Plugins:
 
 1. **`catch-links`**: ([source code](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-catch-links)) "... intercepts all local links that have not been created in React using gatsby-link, and replaces their behavior with that of the gatsby-link navigate."
 
@@ -57,8 +57,6 @@
 1. **`react-helmet`**: ([documentation](https://www.gatsbyjs.org/packages/gatsby-plugin-react-helmet/ "\"... component which lets you control your document head using their React component.  With this plugin, attributes you add in their component, e.g. title, meta attributes, etc. will get added to the static HTML pages Gatsby builds.\"")) "Provides drop-in support for server rendering data added with React Helmet."
 
 1. **`sharp`**: ([documentation](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/ "\"... a low-level helper plugin generally used by other Gatsby plugins. You generally shouldn’t be using this directly but might find it helpful if doing very custom image processing.\"")) "Exposes several image processing functions built on the Sharp image processing library."
-
-<br>
 
 ## 🎓 Learning Gatsby
 
