@@ -1,6 +1,10 @@
+/*
+https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
+*/
+
 html {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
+  font-family: sans-serif; /* https://developer.mozilla.org/en-US/docs/Web/CSS/font-family */
+  -ms-text-size-adjust: 100%; /* https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust */
   -webkit-text-size-adjust: 100%;
 }
 body {
