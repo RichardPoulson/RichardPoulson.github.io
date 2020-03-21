@@ -7,7 +7,7 @@
 
 <hr>
 
-## Project contents (top-level files/directories):
+## Project contents:
 
     .
     ├── src
@@ -47,6 +47,8 @@
 1. **`README.md`**: A text file containing useful reference information about your project.
 
 1. **`yarn.lock`**: ([documentation](https://classic.yarnpkg.com/en/docs/yarn-lock/)) Automatically generated file, based on "package.json" file, can ignore in most cases.
+
+<br>
 
 ## 🔌 Gatsby Plugins:
 
