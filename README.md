@@ -1,5 +1,5 @@
 <h1 align="center">
-  Richard Poulson: Professional Site and Blog (source code)
+  Richard Poulson: Professional Site and Blog
 </h1>
 <h4>
   Utilizes  <a href="https://www.gatsbyjs.org/" title="''Fast in every way that matters: Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps''">Gatsby</a>, a free and open source framework based on React.
@@ -7,54 +7,9 @@
 
 <hr>
 
-## Project Directory:
-
-    .
-    ├── src
-    ├── .gitignore
-    ├── .prettierignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package.json
-    ├── README.md
-    └── yarn.lock
-
-
-1. **`/src`**: The source code for [my website and blog](https://www.richardpoulson.com).
-
-1. **`.gitignore`**: ([documentation](https://git-scm.com/docs/gitignore "\"A gitignore file specifies intentionally untracked files that Git should ignore. Files already tracked by Git are not affected; see the NOTES below for details.\"")) "Specifies intentionally untracked files to ignore."
-
-1. **`.prettierignore`**: Files and directories that [Prettier should ignore](https://prettier.io/docs/en/ignore.html "\"Prettier offers an escape hatch to ignore a block of code or prevent entire files from being formatted.  To exclude files from formatting, add entries to a .prettierignore file in the project root or set the --ignore-path CLI option.  .prettierignore uses gitignore syntax.\"").
-
-1. **`.prettierrc`**: The [Prettier](https://prettier.io/ "\"An opinionated code formatter\", \"Supports many languages\"") configuration file.
-
-1. **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-1. **`gatsby-config.js`**: main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-1. **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-1. **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-1. **`LICENSE`**: ([documentation](https://choosealicense.com/licenses/)) This software project is licensed under the GNU Affero General Public License v3.0.  Gatsby is licensed under the MIT license.
-
-1. **`package.json`**: ([documentation](https://docs.npmjs.com/files/package.json)) A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-1. **`README.md`**: A text file containing useful reference information about your project.
-
-1. **`yarn.lock`**: ([documentation](https://classic.yarnpkg.com/en/docs/yarn-lock/)) Automatically generated file, based on "package.json" file, can ignore in most cases.
-
-
-<br>
-
 ## 📜 Package Scripts:
 
 1. ```yarn start``` | ```gatsby develop```: Start the Gatsby development server ([http://localhost:8000/](http://localhost:8000/)).
-
 
 1. ```yarn test``` | ```jest```: Run Unit testing with [Jest testing framework](https://jestjs.io/ "''Jest is a delightful JavaScript Testing Framework with a focus on simplicity.  It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!''").
 
@@ -65,6 +20,61 @@
 1. ```yarn serve``` | ```gatsby serve```: Serve the production build of your site for testing ([http://localhost:9000/](http://localhost:9000/)).
 
 1. ```yarn clean``` | ```gatsby clean```: Wipe out the cache (.cache folder) and public directories.  This is useful as a last resort when your local project seems to have issues or content does not seem to be refreshing.
+
+<br>
+
+## 💾 Project Directory:
+
+    .
+    ├── __mocks__/
+    ├── src/
+    ├── .gitignore
+    ├── .prettierignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── jest-preprocess.js
+    ├── jest.config.js
+    ├── LICENSE
+    ├── loadershim.js
+    ├── package.json
+    ├── README.md
+    └── yarn.lock
+
+
+1. **`__mocks__/`**: [Manual Mocks](https://jestjs.io/docs/en/manual-mocks.html "\"Manual mocks are used to stub out functionality with mock data. For example, instead of accessing a remote resource like a website or a database, you might want to create a manual mock that allows you to use fake data. This ensures your tests will be fast and not flaky.\"") (mock data) for testing with the Jest framework.
+
+1. **`src/`**: The source code for [my website and blog](https://www.richardpoulson.com).
+
+1. **`.gitignore`**: ([documentation](https://git-scm.com/docs/gitignore "\"A gitignore file specifies intentionally untracked files that Git should ignore. Files already tracked by Git are not affected; see the NOTES below for details.\"")) "Specifies intentionally untracked files to ignore."
+
+1. **`.prettierignore`**: Files and directories that [Prettier should ignore](https://prettier.io/docs/en/ignore.html "\"Prettier offers an escape hatch to ignore a block of code or prevent entire files from being formatted.  To exclude files from formatting, add entries to a .prettierignore file in the project root or set the --ignore-path CLI option.  .prettierignore uses gitignore syntax.\"").
+
+1. **`.prettierrc`**: The [Prettier configuration file](https://prettier.io/docs/en/configuration.html)
+
+1. **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+
+1. **`gatsby-config.js`**: main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+
+1. **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+
+1. **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+
+1. **`jest-preprocess.js`**: Transform all JS and JSX files using the [default Gatsby/Babel presets](https://github.com/gatsbyjs/gatsby/tree/master/packages/babel-preset-gatsby "\"Gatsby uses the phenomenal project Babel to enable support for writing modern JavaScript — while still supporting older browsers. This package contains the default Babel setup for all Gatsby projects.\"").
+
+1. **`jest.config.js`**: The [Jest configuration file](https://jestjs.io/docs/en/configuration.html).
+
+1. **`LICENSE`**: ([documentation](https://choosealicense.com/licenses/)) This software project is licensed under the GNU Affero General Public License v3.0.  Gatsby is licensed under the MIT license.
+
+1. **`loadershim.js`**: ([documentation](https://www.gatsbyjs.org/docs/unit-testing/#2-creating-a-configuration-file-for-jest)) Load the [Jest mock function](https://jestjs.io/docs/en/mock-functions.html "\"Mock functions allow you to test the links between code by erasing the actual implementation of a function, capturing calls to the function (and the parameters passed in those calls), capturing instances of constructor functions when instantiated with new, and allowing test-time configuration of return values.\"") using the global object.
+
+1. **`package.json`**: ([documentation](https://nodejs.dev/the-package-json-guide)) A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm and Yarn knows which packages to install for your project.
+
+1. **`README.md`**: A text file containing useful reference information about your project.
+
+1. **`yarn.lock`**: ([documentation](https://classic.yarnpkg.com/en/docs/yarn-lock/)) Automatically generated file, based on "package.json" file, can ignore in most cases.
 
 <br>
 
