@@ -4,7 +4,7 @@ exports[`Header renders correctly 1`] = `
 <header
   style={
     Object {
-      "background": "rebeccapurple",
+      "background": "dodgerblue",
       "marginBottom": "1.45rem",
     }
   }

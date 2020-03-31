@@ -10,6 +10,13 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+/**
+ * useStatidQuery: "a new Gatsby feature that provides the ability to use a React Hook 
+ * to query with GraphQL at build time."
+ * 
+ * 
+ */
+/* [ site ] = */
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`
