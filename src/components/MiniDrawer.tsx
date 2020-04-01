@@ -21,7 +21,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SchoolIcon from '@material-ui/icons/School'; // education
 import WorkIcon from '@material-ui/icons/Work'; // work experience
 
-
 import Content from './Content';
 
 const drawerWidth = 240;
@@ -61,7 +60,7 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
     },
     menuButton: {
-      marginRight: 36,
+      marginRight: theme.spacing(2), //  36,
     },
     hide: {
       display: 'none',
@@ -168,7 +167,7 @@ export default function MiniDrawer({...props}) {
           }}
         >
           <div className={classes.toolbar}>
-            {open &&
+            {open && /* If the drawer is open, return a Tooltip and IconButton. */
               <Tooltip
                 arrow
                 title="Collapse Menu"
