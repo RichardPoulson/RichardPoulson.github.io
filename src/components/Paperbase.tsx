@@ -26,7 +26,7 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 280;
+const drawerWidth = 240;
 
 const styles = createStyles({
   root: {
