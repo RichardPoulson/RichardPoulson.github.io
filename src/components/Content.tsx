@@ -43,7 +43,7 @@ function Content(props: ContentProps) {
 
   return (
     <Container className={classes.cardGrid}>
-      <Grid container direction="row" justify="space-evenly" alignItems="baseline" spacing={2}>
+      <Grid container direction="row" justify="space-evenly" alignItems="baseline" spacing={3}>
         {props.dataType == "work" && workExperience.map((item) => (
           <Grid item key={item} xs={12} sm={9} md={6}>
             <CustomizedCard

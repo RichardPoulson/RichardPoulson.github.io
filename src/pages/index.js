@@ -5,7 +5,8 @@ import Paperbase from '../components/Paperbase';
 export default function Index() {
   return (
     <React.Fragment>
-        <Paperbase />
+        <Paperbase>
+        </Paperbase>
     </React.Fragment>
   );
 }

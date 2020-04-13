@@ -1,8 +1,8 @@
 /**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
+ * @author Richard Poulson <contact@richardpoulson.com>
+ * @version 0.1.0
+ * @see {@link https://semver.org/spec/v2.0.0.html Semantic Versioning 2.0.0}
+ * @see {@link https://github.com/gatsbyjs/gatsby-starter-default/blob/master/src/components/seo.js original file}
  */
 
 import React from "react"
@@ -11,12 +11,12 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 /**
- * useStatidQuery: "a new Gatsby feature that provides the ability to use a React Hook 
- * to query with GraphQL at build time."
- * 
- * 
+ * give your users and these websites additional data to embed your website with more data 
+ * @see {@link https://www.gatsbyjs.org/docs/add-seo-component/ Adding an SEO Component | Gatsby}
+ * @see {@link https://www.gatsbyjs.org/docs/use-static-query/ Querying Data in Components with the useStaticQuery Hook | Gatsby}
+ * @see {@link https://github.com/nfl/react-helmet#readme React Helmet readme | GitHub}
+ * @see {@link https://ogp.me/#metadata Basic Metadata | The Open Graph protocol}
  */
-/* [ site ] = */
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`

@@ -23,13 +23,19 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.9.0",
+    "@testing-library/jest-dom": "^5.3.0",
+    "@testing-library/react": "^10.0.2",
+    "@types/material-ui": "^0.21.7",
     "@types/node": "^12.12.31",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
+    "@types/react-helmet": "^5.0.15",
+    "axios": "^0.19.2",
     "babel-jest": "^25.1.0",
     "babel-preset-gatsby": "^0.3.0",
     "gh-pages": "^2.2.0",
@@ -39,10 +45,12 @@
     "react-test-renderer": "^16.13.1"
   },
   "keywords": [
-    "gatsby",
-    "react"
+    "Gatsby",
+    "React",
+    "Material-UI",
+    "Jest"
   ],
-  "license": "agpl-3.0",
+  "license": "AGPL-3.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

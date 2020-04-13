@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-  createMuiTheme,
-  responsiveFontSizes,
   createStyles,
   ThemeProvider,
   withStyles,
@@ -10,156 +8,25 @@ import {
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
-import Link from '../components/Link';
-import MiniDrawer from './MiniDrawer';
+import { INavigatorLink } from './Navigator';
+import Navigator from './Navigator';
+import Content from './Content';
+import Header from './Header';
+import WorkIcon from '@material-ui/icons/Work'; // work experience
+
+import theme from '../themes/paperbaseTheme'; // MUI theme
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
   );
 }
 
-let theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#67d0ff',
-      main: '#009ff7',
-      dark: '#0071c4',
-    },
-    secondary: {
-      light: '#ffe24b',
-      main: '#f9b000',
-      dark: '#c18100',
-    }
-  },
-  typography: {
-    fontFamily: 'Avenir, sans-serif',
-  },
-  shape: {
-    borderRadius: 8,
-  },
-  props: {
-    MuiTab: {
-      disableRipple: true,
-    },
-  },
-  mixins: {
-    toolbar: {
-      minHeight: 48,
-    },
-  },
-});
-
-theme = {
-  ...theme,
-  overrides: {
-    MuiButton: {
-      label: {
-        textTransform: 'none',
-      },
-      contained: {
-        boxShadow: 'none',
-        '&:active': {
-          boxShadow: 'none',
-        },
-      },
-    },
-    MuiCardHeader: {
-      root: {
-        backgroundColor: theme.palette.secondary.light,
-      },
-      title: {
-        'text-align': 'center',
-      },
-      subheader: {
-        'text-align': 'center',
-      },
-      avatar: {
-        minWidth: 48,
-        minHeight: 48,
-      },
-    },
-    MuiDivider: {
-      root: {
-        backgroundColor: 'rgba(0,0,0,0.0)',
-      },
-    },
-    MuiDrawer: {
-      paper: {
-        backgroundImage: `linear-gradient(180deg, ${theme.palette.primary.light}, ${theme.palette.primary.main} , ${theme.palette.primary.dark})`,
-      }
-    },
-    MuiIconButton: {
-      root: {
-        padding: theme.spacing(1),
-      },
-    },
-    MuiListItem: {
-      gutters: {
-        padding: theme.spacing(0.25),
-      },
-    },
-    MuiListItemText: {
-      root: {
-        '&:hover': {
-          fontWeight: theme.typography.fontWeightBold,
-        }
-      },
-      primary: {
-        fontWeight: theme.typography.fontWeightMedium,
-      },
-      secondary: {},
-    },
-    MuiListItemIcon: {
-      root: {
-        color: 'inherit',
-        marginRight: 0,
-        '& svg': {
-          fontSize: 20,
-        },
-      },
-    },
-    MuiTab: {
-      root: {
-        textTransform: 'none',
-        margin: '0 16px',
-        minWidth: 0,
-        padding: 0,
-        [theme.breakpoints.up('md')]: {
-          padding: 0,
-          minWidth: 0,
-        },
-      },
-    },
-    MuiTabs: {
-      root: {
-        marginLeft: theme.spacing(1),
-      },
-      indicator: {
-        height: 3,
-        borderTopLeftRadius: 3,
-        borderTopRightRadius: 3,
-        backgroundColor: theme.palette.common.white,
-      },
-    },
-    MuiTooltip: {
-      tooltip: {
-        borderRadius: 4,
-      },
-    },
-  },
-};
-
-theme = responsiveFontSizes(theme);
-
-const drawerWidth = 288;
+const drawerWidth = 280;
 
 const styles = createStyles({
   root: {
@@ -168,40 +35,73 @@ const styles = createStyles({
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
-      width: 'auto', //width: drawerWidth,
+      width: drawerWidth,
+      flexShrink: 0,
     },
+  },
+  app: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
   },
   main: {
     flex: 1,
-    padding: theme.spacing(6, 4),
+    padding: theme.spacing(2),
+    background: '#eaeff1',
   },
   footer: {
     padding: theme.spacing(2),
+    background: '#eaeff1',
   },
 });
 
-export interface PaperbaseProps extends WithStyles<typeof styles> {}
+export interface PaperbaseProps extends WithStyles<typeof styles>{
+  children?: React.ReactNode;
+}
 
 function Paperbase(props: PaperbaseProps) {
-  const { classes } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { classes, children, ...other } = props;
+  const [ mobileOpen, setMobileOpen ] = React.useState(false);
+  const [ activeLink, setActiveLink ] = React.useState({ id: 'Experience', icon: <WorkIcon />, content: <Content dataType="work" />});
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleLinkClick = (navLink: INavigatorLink) => {
+    setActiveLink(navLink);
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
       <div className={classes.root}>
-        {/* <nav className={classes.drawer}> */}
+        <CssBaseline />
+        <nav className={classes.drawer}>
           <Hidden smUp implementation="js">
-            <MiniDrawer />
+            <Navigator
+              PaperProps={{ style: { width: drawerWidth } }}
+              variant="temporary"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              onLinkClick={handleLinkClick}
+            />
           </Hidden>
-          <Hidden xsDown implementation="js">
-            <MiniDrawer />
+          <Hidden xsDown implementation="css">
+            <Navigator
+              PaperProps={{ style: { width: drawerWidth } }}
+              onLinkClick={handleLinkClick}
+            />
           </Hidden>
-        {/* </nav> */}
+        </nav>
+        <div className={classes.app}>
+          <Header toolbarHeading={activeLink.id} onDrawerToggle={handleDrawerToggle} />
+          <main className={classes.main}>
+              {activeLink.content}
+          </main>
+          <footer className={classes.footer}>
+            <Copyright />
+          </footer>
+        </div>
       </div>
     </ThemeProvider>
   );

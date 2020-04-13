@@ -1,17 +1,35 @@
+/** @file TypeScript definition of the CustomizedCard function component.
+ * @author Richard Poulson <contact@richardpoulson.com>
+ * @version 0.1.0
+ */
+
 import clsx from 'clsx'; // "A tiny (229B) utility for constructing className strings conditionally."
 import React from 'react';
-import { WithStyles, withStyles, createStyles, useTheme, Theme } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import { CardHeader } from '@material-ui/core';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
-import Zoom from '@material-ui/core/Zoom';
+import {
+  createStyles,
+  Theme,
+  withStyles,
+  WithStyles
+} from '@material-ui/core/styles';
+import {
+  Card,
+  CardHeader,
+  CardActions,
+  CardContent,
+  Collapse,
+  IconButton,
+  Tooltip,
+  Typography,
+  Zoom
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+/** 
+ * Create style for CustomizedCard and its children.
+ * 
+ * @see {@link https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createMuiTheme.js}
+ * @see {@link https://material-ui.com/guides/typescript/#usage-of-withstyles Usage of withStyles - TypeScript - Material-UI}
+ * */
 const styles = (theme: Theme) =>
   createStyles({
     root: {
@@ -41,10 +59,6 @@ const styles = (theme: Theme) =>
     expandOpen: {
       transform: 'rotate(180deg)',
     },
-    avatar: {
-      backgroundColor: theme.palette.secondary.dark,
-      color: theme.palette.secondary.contrastText,
-    },
     media: {
       height: 0,
       paddingTop: '56.25%', // 16:9
@@ -57,7 +71,7 @@ const styles = (theme: Theme) =>
     }
   });
 
-// Extend WithStyles interface to also include properties for customized card.
+/** Props that a CustomizedCard component can accept. */ 
 export interface ContentProps extends WithStyles<typeof styles> {
   action?: React.ReactNode,
   avatar?: React.ReactNode,
@@ -66,15 +80,36 @@ export interface ContentProps extends WithStyles<typeof styles> {
   subheader?: string,
   summary: string,
   details?: Array<string>,
-  list?: Array<string>, // list of detail items for the card
+  list?: Array<string>,
   links?: Array<React.ReactFragment>,
   raised?: Boolean
 };
 
+/**
+ * Returns a customized Material-UI Card function component.
+ * 
+ * @param {ContentProps} props - Props object
+ * @param {React.ReactNode} [props.action] - Action card should take when triggered
+ * @param {React.ReactNode} [props.avatar] - Material-UI Avater component
+ * @param {string} props.header
+ * @param {*} [props.media]
+ * @param {string} [props.subheader]
+ * @param {string} props.summary - Summary of card's focus.
+ * @param {Array<string>} [props.details] - Details (paragraphs) 
+ * @param {Array<string>} [props.list] - List of items
+ * @param {Array<React.ReactFragment>} [props.links] - Related hyperlinks
+ * @param {Boolean} [props.raised] - Is the card raised?
+ * 
+ * @see {@link https://material-ui.com/components/cards/ Card React component - Material-UI}
+ * @todo Define type for CustomizedCard.
+ * @todo Define how media is handled.
+ */
 function CustomizedCard(props: ContentProps) {
   const { classes } = props;
+  /** @see {@link https://reactjs.org/docs/hooks-overview.html} */
   const [ expanded, setExpanded ] = React.useState(false);
 
+  /** Triggered when expand button is clicked. */
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -85,6 +120,8 @@ function CustomizedCard(props: ContentProps) {
         avatar={props.avatar}
         title={props.header}
         subheader={props.subheader}
+        titleTypographyProps={{ variant: 'h6' }}
+        subheaderTypographyProps={{ variant: 'subtitle1' }}
       />
       <CardContent className={classes.supporting}>
         <Typography variant="body1" className={classes.supporting}>
@@ -92,8 +129,8 @@ function CustomizedCard(props: ContentProps) {
         </Typography>
       </CardContent>
       <CardActions>
-        {/* If Card has additional details, show expand button. */}
-        {(props.details || props.list) &&
+        {/* If Card has details or a list, show expand button. */
+        (props.details || props.list) &&
           <Tooltip
             arrow
             title={expanded ? "Hide Details" : "Show Details"}
@@ -116,12 +153,14 @@ function CustomizedCard(props: ContentProps) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography>
-            {props.details &&
+            {/* If card has details, return them. */
+            props.details &&
               props.details.map((item) => (
                 <p key={item}>{item}</p>
               ))
             }
-            {props.list &&
+            {/* If card has list of items, return them. */
+            props.list &&
               <ul>
                 {props.list.map((item) => (
                   <li key={item}>{item}</li>

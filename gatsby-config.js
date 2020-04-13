@@ -1,8 +1,14 @@
+/** @file
+ * @author Richard Poulson <contact@richardpoulson.com>
+ * @see {@link https://www.gatsbyjs.org/docs/gatsby-config/#}
+ * 
+ */
+
 module.exports = {
   siteMetadata: {
     title: `Richard Poulson`,
     description: `Professional site and blog for Richard Poulson.`,
-    author: `Richard Poulson <contact@richardpoulson.com>`,
+    author: `Richard Poulson`,
     siteUrl: `https://www.richardpoulson.com`,
   },
   plugins: [
