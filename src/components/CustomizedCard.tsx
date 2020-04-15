@@ -1,21 +1,21 @@
-/** @file TypeScript definition of the CustomizedCard function component.
- * @author Richard Poulson <contact@richardpoulson.com>
+/**
+ * @author Richard Poulson
  * @version 0.1.0
  */
 
 import clsx from 'clsx'; // "A tiny (229B) utility for constructing className strings conditionally."
 import React from 'react';
 import {
-  createStyles,
-  Theme,
   withStyles,
   WithStyles
 } from '@material-ui/core/styles';
 import {
   Card,
   CardHeader,
+  CardHeaderProps,
   CardActions,
   CardContent,
+  CardMedia,
   Collapse,
   IconButton,
   Tooltip,
@@ -24,71 +24,20 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-/** 
- * Create style for CustomizedCard and its children.
- * 
- * @see {@link https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createMuiTheme.js}
- * @see {@link https://material-ui.com/guides/typescript/#usage-of-withstyles Usage of withStyles - TypeScript - Material-UI}
- * */
-const styles = (theme: Theme) =>
-  createStyles({
-    root: {
-      maxWidth: '600px',
-    },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandButton: {
-      [theme.breakpoints.down('sm')]: {
-        width: '32px',
-        height: '32px',
-      },
-      [theme.breakpoints.up('md')]: {
-        width: '48px',
-        height: '48px',
-      },
-      [theme.breakpoints.up('lg')]: {
-        width: '64px',
-        height: '64px',
-      },
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
-    },
-    supporting: {
-      display: 'flex',
-      margin: 'auto',
-      alignItems: 'center',
-      alignSelf: 'center',
-    }
-  });
+import styles from '../styles/customizedCardStyles';
 
-/** Props that a CustomizedCard component can accept. */ 
-export interface ContentProps extends WithStyles<typeof styles> {
-  action?: React.ReactNode,
-  avatar?: React.ReactNode,
-  header: string,
-  media?: any,
-  subheader?: string,
-  summary: string,
-  details?: Array<string>,
-  list?: Array<string>,
-  links?: Array<React.ReactFragment>,
-  raised?: Boolean
-};
+export interface CustomizedCardProps extends Omit<CardHeaderProps, 'classes'>, WithStyles<typeof styles>{
+  raised?: Boolean;
+  header: string;
+  summary: string;
+  details?: Array<string>;
+  list?: Array<string>;
+  media?: string;
+}
 
 /**
- * Returns a customized Material-UI Card function component.
- * 
- * @param {ContentProps} props - Props object
+ * Customized Material-UI Card.
+ * @param {Object} props - Properties for this compponent.
  * @param {React.ReactNode} [props.action] - Action card should take when triggered
  * @param {React.ReactNode} [props.avatar] - Material-UI Avater component
  * @param {string} props.header
@@ -101,12 +50,9 @@ export interface ContentProps extends WithStyles<typeof styles> {
  * @param {Boolean} [props.raised] - Is the card raised?
  * 
  * @see {@link https://material-ui.com/components/cards/ Card React component - Material-UI}
- * @todo Define type for CustomizedCard.
- * @todo Define how media is handled.
  */
-function CustomizedCard(props: ContentProps) {
+function CustomizedCard(props: CustomizedCardProps) {
   const { classes } = props;
-  /** @see {@link https://reactjs.org/docs/hooks-overview.html} */
   const [ expanded, setExpanded ] = React.useState(false);
 
   /** Triggered when expand button is clicked. */
@@ -123,6 +69,13 @@ function CustomizedCard(props: ContentProps) {
         titleTypographyProps={{ variant: 'h6' }}
         subheaderTypographyProps={{ variant: 'subtitle1' }}
       />
+      {/* If card has media prop, return CardMedia component. */
+       props.media &&
+       <CardMedia
+          className={classes.media}
+          image={props.media}
+        />
+      }
       <CardContent className={classes.supporting}>
         <Typography variant="body1" className={classes.supporting}>
           {props.summary}

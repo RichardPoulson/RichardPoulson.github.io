@@ -16,7 +16,7 @@ let theme = createMuiTheme({
     },
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 16,
   },
   props: {
     MuiTab: {
@@ -33,21 +33,15 @@ let theme = createMuiTheme({
 theme = {
   ...theme,
   overrides: {
-    MuiToolbar: {
-      root: {
-        margin: theme.spacing(1),
-      }
-    },
     MuiAppBar: {
       root: {
         backgroundColor: theme.palette.primary.dark,
-        //backgroundImage: `linear-gradient(to right, ${theme.palette.primary.dark}, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
       }
     },
-    MuiDrawer: {
-      paper: {
-        // backgroundColor: theme.palette.primary.main,
-        backgroundImage: `linear-gradient(to right, ${theme.palette.primary.dark}, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
+    MuiAvatar: {
+      root: {
+        width: 32,
+        height: 32,
       },
     },
     MuiButton: {
@@ -61,19 +55,19 @@ theme = {
         },
       },
     },
-    MuiIconButton: {
-      root: {
-        padding: theme.spacing(1),
-      },
-    },
-    MuiTooltip: {
-      tooltip: {
-        borderRadius: 4,
-      },
-    },
     MuiDivider: {
       root: {
         backgroundColor: '#404854',
+      },
+    },
+    MuiDrawer: {
+      paper: {
+        backgroundImage: `linear-gradient(to right, ${theme.palette.primary.dark}, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
+      },
+    },
+    MuiIconButton: {
+      root: {
+        padding: theme.spacing(1),
       },
     },
     MuiListItem: {
@@ -81,24 +75,13 @@ theme = {
         color: theme.palette.common.white,
       },
       button: {
-        //color: 'rgba(255, 255, 255, 0.7)',
-        '&:hover,&:focus': {
+        '&:hover': {
           backgroundColor: 'rgba(255, 255, 255, 0.32)',
         },
-        /*
-        '&:active': {
-          color: theme.palette.secondary.main,
-        },
-        */
       },
       selected: {
-        // TODO: implement toggling of drawer link component. //color: theme.palette.secondary.main,
+        backgroundImage: `linear-gradient(to right, ${theme.palette.secondary.dark+ '88'}, ${theme.palette.secondary.main+ '88'}, ${theme.palette.secondary.light+ '88'})`,
       }
-    },
-    MuiListItemText: {
-      primary: {
-        fontWeight: theme.typography.fontWeightMedium,
-      },
     },
     MuiListItemIcon: {
       root: {
@@ -109,10 +92,19 @@ theme = {
         },
       },
     },
-    MuiAvatar: {
+    MuiListItemText: {
+      primary: {
+        fontWeight: theme.typography.fontWeightMedium,
+      },
+    },
+    MuiToolbar: {
       root: {
-        width: 32,
-        height: 32,
+        margin: theme.spacing(1),
+      }
+    },    
+    MuiTooltip: {
+      tooltip: {
+        borderRadius: 8,
       },
     },
   },

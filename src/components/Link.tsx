@@ -1,6 +1,7 @@
 /**
+ * @author Richard Poulson
+ * @version 0.1.0
  * Wrap MUI's link definition around Gatsby's definition.
- * 
  */
 
 import React, { Ref, ReactElement } from 'react';

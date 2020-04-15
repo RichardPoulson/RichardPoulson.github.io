@@ -1,7 +1,6 @@
 /**
  * @author Richard Poulson <contact@richardpoulson.com>
  * @version 0.1.0
- * @see {@link https://semver.org/spec/v2.0.0.html Semantic Versioning 2.0.0}
  * @see {@link https://github.com/gatsbyjs/gatsby-starter-default/blob/master/src/components/seo.js original file}
  */
 

@@ -1,68 +1,50 @@
+/**
+ * @author Richard Poulson
+ * @version 0.1.0
+ * @todo Refactor how activeLink state in Paperbase is initialized.
+ * @todo Refactor how styles are imported so that drawerWidth doesn't have to be defined in both files.
+ * @todo Figure out why IDE reports that it can't find member ThemeProviderProps (but builds/runs successfully).
+ */
+
 import React from 'react';
 import {
-  createStyles,
+  ThemeProviderProps,
   ThemeProvider,
   withStyles,
   WithStyles,
 } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
-import Typography from '@material-ui/core/Typography';
+import WorkIcon from '@material-ui/icons/Work';
+
 import { INavigatorLink } from './Navigator';
 import Navigator from './Navigator';
-import Content from './Content';
+import WorkContent from './WorkContent';
 import Header from './Header';
-import WorkIcon from '@material-ui/icons/Work'; // work experience
+import Footer from './Footer';
 
-import theme from '../themes/paperbaseTheme'; // MUI theme
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
+import styles from '../styles/paperbaseStyles';
 const drawerWidth = 240;
 
-const styles = createStyles({
-  root: {
-    display: 'flex',
-    minHeight: '100vh',
-  },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-  app: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  main: {
-    flex: 1,
-    padding: theme.spacing(2),
-    background: '#eaeff1',
-  },
-  footer: {
-    padding: theme.spacing(2),
-    background: '#eaeff1',
-  },
-});
-
-export interface PaperbaseProps extends WithStyles<typeof styles>{
-  children?: React.ReactNode;
+export interface PaperbaseProps extends Omit<ThemeProviderProps, 'classes'>, WithStyles<typeof styles>{
+  imageMap?: Map<string, string>;
+  queryData?: Object;
 }
 
+/**
+ * Material-UI (React) function component, returns Header, Navigator, and Copyright. 
+ * @param props - Properties for this compponent.
+ * @param props.classes - CSS classes of the MUI styles defined for this component.
+ * @param props.children - Children React nodes of this function component.
+ * @param props.theme - MUI theme to be used for the ThemeProvider.
+ * @param [props.imageMap] - Map from image filenames to optimized Gatsby object components.
+ * @param [props.queryData] - Data returned from a GraphQL query. 
+ * @see {@link https://material-ui.com/styles/advanced/#theming Theming - Advanced - Material-UI}
+ */
 function Paperbase(props: PaperbaseProps) {
-  const { classes, children, ...other } = props;
+  const { classes, children, imageMap, queryData: data, theme, ...other } = props;
   const [ mobileOpen, setMobileOpen ] = React.useState(false);
-  const [ activeLink, setActiveLink ] = React.useState({ id: 'Experience', icon: <WorkIcon />, content: <Content dataType="work" />});
+  const [ activeLink, setActiveLink ] = React.useState({ id: 'Experience', icon: <WorkIcon />, content: <WorkContent queryData={data} imageMap={imageMap} />});
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -73,7 +55,7 @@ function Paperbase(props: PaperbaseProps) {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider {...other} theme={theme}>
       <div className={classes.root}>
         <CssBaseline />
         <nav className={classes.drawer}>
@@ -84,23 +66,34 @@ function Paperbase(props: PaperbaseProps) {
               open={mobileOpen}
               onClose={handleDrawerToggle}
               onLinkClick={handleLinkClick}
+              imageMap={props.imageMap}
+              queryData={data}
             />
           </Hidden>
           <Hidden xsDown implementation="css">
             <Navigator
               PaperProps={{ style: { width: drawerWidth } }}
               onLinkClick={handleLinkClick}
+              imageMap={props.imageMap}
+              queryData={data}
             />
           </Hidden>
         </nav>
         <div className={classes.app}>
-          <Header toolbarHeading={activeLink.id} onDrawerToggle={handleDrawerToggle} />
+          <Header
+            toolbarHeading={activeLink.id}
+            onDrawerToggle={handleDrawerToggle}
+          />
           <main className={classes.main}>
-              {activeLink.content}
+            {activeLink.content}
           </main>
-          <footer className={classes.footer}>
-            <Copyright />
-          </footer>
+          <Footer
+            className={classes.footer}
+            variant="body1"
+            color="textSecondary"
+            align="center"
+            author={data.site.siteMetadata.author}
+          />
         </div>
       </div>
     </ThemeProvider>

@@ -4,20 +4,23 @@
     "subheader": "Bachelor of Science Degree in Computer Science",
     "gpa": "GPA: 3.68",
     "summary": "8/2015 – 5/2019",
-    "details": null
+    "details": null,
+    "media": "cu-boulder.jpeg"
   },
   {
     "header": "Front Range Community College",
     "subheader": "Associate's Degree",
     "gpa": "GPA: 3.85",
     "summary": "5/2014 – 5/2015",
-    "details": null
+    "details": null,
+    "media": "front-range-community-college.jpg"
   },
   {
     "header": "Blue Ridge High School",
     "subheader": "High School Diploma",
     "gpa": "GPA: 3.19",
     "summary": "8/1996 – 5/2000",
-    "details": null
+    "details": null,
+    "media": "blue-ridge-school-district.jpg"
   }
 ]

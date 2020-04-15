@@ -28,15 +28,25 @@
     .
     ├── __mocks__/
     ├── src/
+    ├   ├── components/
+    ├   ├   └── __tests__/
+    ├   ├── images/
+    ├   ├── json/
+    ├   ├── pages/
+    ├   ├── styles/
+    ├   ├── templates/
+    ├   └── themes/
     ├── .gitignore
     ├── .prettierignore
     ├── .prettierrc
+    ├── CNAME
     ├── gatsby-browser.js
     ├── gatsby-config.js
     ├── gatsby-node.js
     ├── gatsby-ssr.js
     ├── jest-preprocess.js
     ├── jest.config.js
+    ├── jest.setup.ts
     ├── LICENSE
     ├── loadershim.js
     ├── package.json

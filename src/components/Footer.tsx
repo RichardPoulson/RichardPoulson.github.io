@@ -5,26 +5,24 @@
  */
 
 import React from 'react';
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import Typography, { TypographyProps } from '@material-ui/core/Typography';
 
-/** @see {@link https://material-ui.com/guides/typescript/#using-createstyles-to-defeat-type-widening Using createStyles to defeat type widening | Material-UI} */
-const styles = (theme: Theme) =>
-  createStyles({
-    root: {}
-  });
-
-interface FooterProps extends WithStyles<typeof styles> {
-  author: string;
+interface FooterProps extends TypographyProps {
+  author?: string;
 }
 
 function Footer(props: FooterProps) {
-  const { classes, author } = props;
+  const { className, author, ...other } = props;
 
   return (
-    <footer className={classes.root}>
-      © {new Date().getFullYear()}, {author}
+    <footer className={className}>
+      <Typography {...other}>
+        {'Copyright © '}
+        {new Date().getFullYear()}
+        {author ? ' ' + author + '.' : '.'}
+    </Typography>
     </footer>
   );
 }
 
-export default withStyles(styles)(Footer);
+export default Footer;
