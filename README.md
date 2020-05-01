@@ -1,5 +1,5 @@
 <h1 align="center">
-  Richard Poulson: Professional Site and Blog
+  Richard Poulson: Professional Site
 </h1>
 <h4>
   Utilizes  <a href="https://www.gatsbyjs.org/" title="''Fast in every way that matters: Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps''">Gatsby</a>, a free and open source framework based on React.
