@@ -4,7 +4,7 @@ import {
 } from '@material-ui/core/styles';
 
 /** 
- * CSS classes for style rules.
+ * CSS classes for style rules for Navigator element.
  * @see {@link https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/styles/createMuiTheme.js}
  * @see {@link https://material-ui.com/guides/typescript/#usage-of-withstyles Usage of withStyles - TypeScript - Material-UI}
  * */

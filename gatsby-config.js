@@ -18,6 +18,7 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

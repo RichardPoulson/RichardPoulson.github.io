@@ -8,8 +8,8 @@
 
 import React from 'react';
 import {
-  ThemeProviderProps,
   ThemeProvider,
+  ThemeProviderProps,
   withStyles,
   WithStyles,
 } from '@material-ui/core/styles';
@@ -24,26 +24,34 @@ import Header from './Header';
 import Footer from './Footer';
 
 import styles from '../styles/paperbaseStyles';
+/** Width of the Navigator component when it's open. */
 const drawerWidth = 240;
 
-export interface PaperbaseProps extends Omit<ThemeProviderProps, 'classes'>, WithStyles<typeof styles>{
+/** Interface for the properties argument of the Paperbase function component.
+ * @param [imageMap] - Map from image filename to optimized Gatsby image component.
+ * @param [queryData] - Data object return from GraphQL query at build time.
+*/
+export interface IPaperbase extends Omit<ThemeProviderProps, 'classes'>, WithStyles<typeof styles>{
   imageMap?: Map<string, string>;
   queryData?: Object;
 }
 
 /**
- * Material-UI (React) function component, returns Header, Navigator, and Copyright. 
- * @param props - Properties for this compponent.
- * @param props.classes - CSS classes of the MUI styles defined for this component.
- * @param props.children - Children React nodes of this function component.
- * @param props.theme - MUI theme to be used for the ThemeProvider.
- * @param [props.imageMap] - Map from image filenames to optimized Gatsby object components.
- * @param [props.queryData] - Data returned from a GraphQL query. 
+ * Material-UI ThemeProvider, returns Header, Navigator, current content, and Copyright. 
+ * @param props - Component properties.
+ * @param props.classes - ClassNameMap<ClassKeyOfStyles<StylesOrClassKey>>
+ * @param props.children - Children React nodes.
+ * @param props.theme - MUI theme for ThemeProvider.
+ * @param props.imageMap - Map from image filenames to optimized Gatsby object components.
+ * @param props.queryData - Data returned from a GraphQL query. 
  * @see {@link https://material-ui.com/styles/advanced/#theming Theming - Advanced - Material-UI}
  */
-function Paperbase(props: PaperbaseProps) {
+function Paperbase(props: IPaperbase) {
+  // other contains remaining properties for ThemeProvider.
   const { classes, children, imageMap, queryData: data, theme, ...other } = props;
+  // mobileOpen: state of the mobile Navigator (small screen sizes) being open or closed.
   const [ mobileOpen, setMobileOpen ] = React.useState(false);
+  // activeLink: state of Paperbase currently active link.
   const [ activeLink, setActiveLink ] = React.useState({ id: 'Experience', icon: <WorkIcon />, content: <WorkContent queryData={data} imageMap={imageMap} />});
 
   const handleDrawerToggle = () => {
@@ -85,7 +93,8 @@ function Paperbase(props: PaperbaseProps) {
             onDrawerToggle={handleDrawerToggle}
           />
           <main className={classes.main}>
-            {activeLink.content}
+            {/* Return content of the link that's active. */
+            activeLink.content}
           </main>
           <Footer
             className={classes.footer}

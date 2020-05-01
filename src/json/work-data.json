@@ -1,6 +1,6 @@
 [
   {
-    "header": "Universal Controls LLC",
+    "title": "Universal Controls LLC",
     "subheader": "Programmer",
     "summary": "6/2019 – 3/2020",
     "list": [
@@ -8,20 +8,20 @@
       "Systems Administration: edge computers (configuration/deployment, database, VPN), network administrator (office, VPN), server administrator (Windows, Ubuntu, CentOS), virtual private servers (Certificate Authority, VPN server, SQL, Apache), office computers and printers/plotters.",
       "Database Administration: MySQL, MariaDB, SSL/TLS, multi-source replication, stored procedures."
     ],
-    "media": "universal-controls.jpg"
+    "image": "universal-controls.jpg"
   },
   {
-    "header": "Design Center Colorado",
-    "subheader": "Systems Developer Contract",
+    "title": "Design Center Colorado",
+    "subheader": "Junior Systems Engineer Contract",
     "summary": "8/2018 – 5/2019",
     "list": [
       "On interdisciplinary team of nine engineers, client was Siemens Gamesa Renewable Energy who invested over $15,000 towards the development of a passive thermography system.",
       "Developed software services and programs for single-board computer (remote control, data buffering and logging, file transfer, system status lights, sensor calibration (IMU)), interfaced single-board computer with three sensor modules (GPS, IMU, LIDAR) and IR camera, installed/configured OS, troubleshoot PPK filtering with GPS raw data."
     ],
-    "media": "design-center-co.jpg"
+    "image": "design-center-co.jpg"
   },
   {
-    "header": "West Safety Services",
+    "title": "West Safety Services",
     "subheader": "PC Technician",
     "summary": "11/2012 – 2/2014",
     "list": [
@@ -30,10 +30,10 @@
       "Helped resolve networking issues such as physical connectivity, OS configuration and VPN security requirements.",
       "Migrated users from Windows XP to Windows 7."
     ],
-    "media": "west-safety-services.jpg"
+    "image": "west-safety-services.jpg"
   },
   {
-    "header": "University of Colorado Boulder",
+    "title": "University of Colorado Boulder",
     "subheader": "IT Technician II",
     "summary": "8/2011 – 6/2012",
     "list": [
@@ -44,10 +44,10 @@
       "Helped resolve networking issues such as physical connectivity, OS configuration and VPN security requirements.",
       "Migrated users from Windows XP to Windows 7"
     ],
-    "media": "cu-boulder.jpeg"
+    "image": "cu-boulder.jpeg"
   },
   {
-    "header": "Arizona State University",
+    "title": "Arizona State University",
     "subheader": "Support Systems Specialist",
     "summary": "8/2006 – 1/2011",
     "list": [
@@ -57,10 +57,10 @@
       "Recommended and created quotes for new equipment based on user’s needs and requests.",
       "Worked with 3rd party vendors for warranty replacements."
     ],
-    "media": "arizona_state_university.jpg"
+    "image": "arizona_state_university.jpg"
   },
   {
-    "header": "Blue Ridge High School",
+    "title": "Blue Ridge High School",
     "subheader": "Computer Administrator",
     "summary": "10/2003 – 3/2006",
     "list": [
@@ -68,6 +68,6 @@
       "Responsible for creating and deploying system images, managing user accounts and administrating Active Directory and Group Policy.",
       "Resolved hardware, software, networking and printer issues via phone, email, remotely and in person."
     ],
-    "media": "blue-ridge-school-district.jpg"
+    "image": "blue-ridge-school-district.jpg"
   }
 ]

@@ -20,6 +20,11 @@ interface HeaderProps extends Omit<AppBarProps, 'classes'>, WithStyles<typeof st
   toolbarHeading: string;
 }
 
+/**
+ * 
+ * @param onDrawerToggle - test
+ * @param toolbarHeading - header for the toolbar
+ */
 function Header(props: HeaderProps) {
   const { classes, onDrawerToggle, toolbarHeading, ...other } = props;
 

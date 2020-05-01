@@ -12,28 +12,41 @@ import {
 import {
   Card,
   CardHeader,
-  CardHeaderProps,
   CardActions,
   CardContent,
   CardMedia,
   Collapse,
   IconButton,
+  PaperProps,
+  StandardProps,
   Tooltip,
   Typography,
+  TypographyProps,
   Zoom
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import styles from '../styles/customizedCardStyles';
 
-export interface CustomizedCardProps extends Omit<CardHeaderProps, 'classes'>, WithStyles<typeof styles>{
-  raised?: Boolean;
-  header: string;
+export interface CustomizedCardProps extends Omit<StandardProps<PaperProps, CustomizedCardClassKey>, 'classes'>, WithStyles<typeof styles> {
+  raised?: boolean;
+  action?: React.ReactNode;
+  avatar?: React.ReactNode;
+  disableTypography?: boolean;
+  subheader?: React.ReactNode;
+  subheaderTypographyProps?: Partial<TypographyProps>;
+  title?: string;
+  titleTypographyProps?: Partial<TypographyProps>;
+  disableSpacing?: boolean;
+  image?: string;
+  src?: string;
+
+  details?: any;
+  list?: any;
   summary: string;
-  details?: Array<string>;
-  list?: Array<string>;
-  media?: string;
 }
+
+export type CustomizedCardClassKey = 'root';
 
 /**
  * Customized Material-UI Card.
@@ -52,7 +65,20 @@ export interface CustomizedCardProps extends Omit<CardHeaderProps, 'classes'>, W
  * @see {@link https://material-ui.com/components/cards/ Card React component - Material-UI}
  */
 function CustomizedCard(props: CustomizedCardProps) {
-  const { classes } = props;
+  const {
+    classes,
+    action,
+    avatar,
+    disableTypography,
+    subheader,
+    subheaderTypographyProps,
+    title,
+    titleTypographyProps,
+    disableSpacing,
+    image,
+    src,
+    ...other
+  } = props;
   const [ expanded, setExpanded ] = React.useState(false);
 
   /** Triggered when expand button is clicked. */
@@ -61,19 +87,21 @@ function CustomizedCard(props: CustomizedCardProps) {
   };
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} {...other} >
       <CardHeader
-        avatar={props.avatar}
-        title={props.header}
+        action={action}
+        avatar={avatar}
+        disableTypography={disableTypography}
         subheader={props.subheader}
-        titleTypographyProps={{ variant: 'h6' }}
-        subheaderTypographyProps={{ variant: 'subtitle1' }}
+        subheaderTypographyProps={subheaderTypographyProps}
+        title={title}
+        titleTypographyProps={titleTypographyProps}
       />
-      {/* If card has media prop, return CardMedia component. */
-       props.media &&
-       <CardMedia
+      {(image || src) &&
+        <CardMedia
           className={classes.media}
-          image={props.media}
+          image={image}
+          src={src}
         />
       }
       <CardContent className={classes.supporting}>

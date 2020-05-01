@@ -24,18 +24,20 @@ function Content(props: ContentProps) {
   var projects = require('../json/project-data.json');
 
   return (
-    <Container className={classes.cardGrid}>
-      <Grid container direction="row" justify="space-evenly" alignItems="baseline" spacing={3}>
-        {props.dataType == "work" && workExperience.map((item) => (
+    <Container className={classes.cardGrid}> 
+      <Grid container direction="row" justify="space-evenly" alignItems="baseline" spacing={3} >
+        {/* If the content's data type is work, map */
+        props.dataType == "work" && workExperience.map((item) => (
           <Grid item key={item} xs={12} sm={12} md={6}>
             <CustomizedCard
               avatar={item.avatar}
-              header={item.header}
+              title={item.title}
               subheader={item.subheader}
               summary={item.summary}
               details={item.details}
               list={item.list}
-              media={props.imageMap.get(item.media)}
+              src={props.imageMap.get(item.src)}
+              image={props.imageMap.get(item.image)}
             />
           </Grid>
         ))}
@@ -43,12 +45,13 @@ function Content(props: ContentProps) {
           <Grid item key={item} xs={12} sm={12} md={6}>
             <CustomizedCard
               avatar={item.avatar}
-              header={item.header}
+              title={item.title}
               subheader={item.subheader}
               summary={item.summary}
               details={item.details}
               list={item.list}
-              media={props.imageMap.get(item.media)}
+              src={props.imageMap.get(item.src)}
+              image={props.imageMap.get(item.image)}
             />
           </Grid>
         ))}
@@ -56,12 +59,13 @@ function Content(props: ContentProps) {
           <Grid item key={item} xs={12} sm={12} md={6}>
             <CustomizedCard
               avatar={item.avatar}
-              header={item.header}
+              title={item.title}
               subheader={item.subheader}
               summary={item.summary}
               details={item.details}
               list={item.list}
-              media={imageMap.get(item.media)}
+              src={imageMap.get(item.src)}
+              image={props.imageMap.get(item.image)}
             />
           </Grid>
         ))}
