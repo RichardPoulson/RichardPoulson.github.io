@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- lts/*
+- 13
 os: linux
 dist: xenial
 arch: amd64
@@ -18,7 +18,8 @@ before_install:
   #- export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
 before_script:
-- npm install jest@^25.1.0
+- yarn add jest@^25.1.0
+- yarn install
 services:
   - xvfb
 cache:
