@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+- lts/*
+os: linux
+dist: xenial
+arch: amd64
+branches:
+  except:
+  - develop
+  - master
+  only:
+  - cd
+script: jest
+#sudo: required
+addons:
+  chrome: stable
+before_install:
+  #- export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+before_script:
+- npm install jest@^25.1.0
+services:
+  - xvfb
+cache:
+  npm: true
+  directories:
+  - node_modules
